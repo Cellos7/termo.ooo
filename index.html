@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="game-title">TERMO</h1>
+        <button class="rules-btn" id="rulesBtn">?</button>
+    </header>
+
+    <div class="game-container">
+        <div class="board" id="board"></div>
+        
+        <div class="keyboard">
+            <div class="keyboard-row">
+                <button class="key" data-key="q">Q</button>
+                <button class="key" data-key="w">W</button>
+                <button class="key" data-key="e">E</button>
+                <button class="key" data-key="r">R</button>
+                <button class="key" data-key="t">T</button>
+                <button class="key" data-key="y">Y</button>
+                <button class="key" data-key="u">U</button>
+                <button class="key" data-key="i">I</button>
+                <button class="key" data-key="o">O</button>
+                <button class="key" data-key="p">P</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key" data-key="a">A</button>
+                <button class="key" data-key="s">S</button>
+                <button class="key" data-key="d">D</button>
+                <button class="key" data-key="f">F</button>
+                <button class="key" data-key="g">G</button>
+                <button class="key" data-key="h">H</button>
+                <button class="key" data-key="j">J</button>
+                <button class="key" data-key="k">K</button>
+                <button class="key" data-key="l">L</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key key-wide" data-key="Enter">ENVIAR</button>
+                <button class="key" data-key="z">Z</button>
+                <button class="key" data-key="x">X</button>
+                <button class="key" data-key="c">C</button>
+                <button class="key" data-key="v">V</button>
+                <button class="key" data-key="b">B</button>
+                <button class="key" data-key="n">N</button>
+                <button class="key" data-key="m">M</button>
+                <button class="key key-wide" data-key="Backspace">⌫</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="message" class="message" style="display: none;"></div>
+    <button id="restartBtn" class="restart-btn">JOGAR NOVAMENTE</button>
+    
+    <div class="rules" id="rules">
+        <h3>Como jogar:</h3>
+        <p>Adivinhe a palavra certa em 6 tentativas.</p>
+        <p>Depois de cada tentativa, as peças mostram o quão perto você está da solução.</p>
+        <ul>
+            <li>Verde: a letra está na posição correta.</li>
+            <li>Amarelo: a letra faz parte da palavra, mas em outra posição.</li>
+            <li>Cinza: a letra não faz parte da palavra.</li>
+        </ul>
+        <p>Os acentos são preenchidos automaticamente, e não são considerados nas dicas.</p>
+        <p>As palavras podem conter letras repetidas.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

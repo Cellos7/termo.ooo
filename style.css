@@ -1,0 +1,248 @@
+:root {
+    --correct-color: #3aa394;
+    --present-color: #d3ad69;
+    --absent-color: #312a2c;
+    --border-color: #3a3a3c;
+    --key-color: #818384;
+    --bg-color: #121213;
+    --text-color: #d7dadc;
+    --tile-size: 62px;
+    --key-height: 58px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Mitr', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.game-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    height: calc(100vh - 170px);
+}
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    margin-bottom: 30px;
+    width: 330px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.tile {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.tile.filled {
+    border: 2px solid #565758;
+}
+
+.tile.pop {
+    animation: popIn 0.1s;
+}
+
+.tile.flip {
+    animation: flip 0.5s;
+}
+
+.tile.shake {
+    animation: shake 0.5s;
+}
+
+.correct {
+    background-color: var(--correct-color);
+    color: white;
+    border-color: var(--correct-color) !important;
+}
+
+.present {
+    background-color: var(--present-color);
+    color: white;
+    border-color: var(--present-color) !important;
+}
+
+.absent {
+    background-color: var(--absent-color);
+    color: white;
+    border-color: var(--absent-color) !important;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.key {
+    min-width: 43px;
+    height: var(--key-height);
+    border: none;
+    border-radius: 4px;
+    background-color: var(--key-color);
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.key-wide {
+    min-width: 65px;
+    font-size: 12px;
+}
+
+.message {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    background-color: white;
+    color: var(--bg-color);
+    z-index: 10;
+    box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
+}
+
+.success {
+    background-color: var(--correct-color);
+    color: white;
+}
+
+.error {
+    background-color: white;
+    color: var(--bg-color);
+}
+
+.rules {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #1a1a1b;
+    border-radius: 5px;
+    max-width: 500px;
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+}
+
+.rules h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.rules p, .rules ul {
+    margin-bottom: 10px;
+}
+
+.rules ul {
+    padding-left: 20px;
+}
+
+.rules-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--correct-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); }
+    40% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes flip {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
